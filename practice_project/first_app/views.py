@@ -16,3 +16,6 @@ def new(request):
 
 def create(request):
     return index(request)
+
+def show(request, number):
+    return HttpResponse(f"placeholder to display blog number: {number}")
