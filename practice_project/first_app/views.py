@@ -22,3 +22,6 @@ def show(request, number):
 
 def edit(request, number):
     return HttpResponse(f"placeholder to edit blog {number}")
+
+def destroy(request, number):
+    return index(request)
