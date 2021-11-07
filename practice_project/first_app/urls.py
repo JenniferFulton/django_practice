@@ -6,4 +6,6 @@ urlpatterns = [
     path('new', views.new),
     path('create', views.create),
     path('<int:number>', views.show),
+    path('<int:number>/edit', views.edit),
+
 ]
