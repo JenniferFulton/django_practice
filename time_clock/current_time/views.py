@@ -4,7 +4,7 @@ from time import gmtime, strftime
 def index(request):
     context = {
         "date": strftime("%b %d, %Y"), 
-        "time": strftime("%H:%M %p", gmtime())
+        "time": strftime("%I:%M %p", gmtime())
     }
     return render(request,'index.html', context)
 
