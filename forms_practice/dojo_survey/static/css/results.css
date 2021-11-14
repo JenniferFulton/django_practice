@@ -1,0 +1,10 @@
+body{
+    border: solid;
+    padding: 20px;
+    height:auto;
+    width: 400px;
+}
+
+h3{
+    text-decoration: underline;
+}

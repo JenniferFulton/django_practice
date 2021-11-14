@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Survey Results" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">  
+</head>
+<body>
+    <h3>Submitted Information:</h3>
+    <table>
+        <tr>
+            <th>Name: </th>
+            <td>{{Name}}</td>
+        </tr>
+
+        <tr>
+            <th>Gender: </th>
+            <td>{{Gender}}</td>
+        </tr>
+
+        <tr>
+            <th>Dojo Location: </th>
+            <td>{{Location}}</td>
+        </tr>
+
+        <tr>
+            <th>Favorite Language: </th>
+            <td>{{Language}}</td>
+        </tr>
+
+        <tr>
+            <th>Favoite Color: </th>
+            <td>{{Color}}</td>
+        </tr>
+
+        <tr>
+            <th>Additional Comments: </th>
+            <td>{{Comments}}</td>
+        </tr>
+    </table>
+</body>
+</html>

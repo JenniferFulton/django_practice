@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="wrapper">
-    <form>
+    <form action="/result" method="post">
+        {% csrf_token %}
         <label for="name">Your Name:</label> 
         <input type=text id=name name=name>
 
@@ -28,7 +29,7 @@
 
         <div class="location">
             <p>Dojo Location:</p>
-            <select name='Favorite language'>
+            <select name='location'>
                 <option value="blank"> </option>
                 <option value="online">Online</option>
                 <option value="houston">Houston</option>
@@ -39,7 +40,7 @@
 
         <div class="language">
             <p>Favorite Language:</p>
-            <select name='Favorite language'>
+            <select name='favorite language'>
                 <option value="blank"></option>
                 <option value="javascript">JavaScript</option>
                 <option value="python">Python</option>
