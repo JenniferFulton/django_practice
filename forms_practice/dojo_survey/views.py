@@ -1,4 +1,3 @@
-from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 
 def index(request):
@@ -14,6 +13,6 @@ def results(request):
         "Color": request.POST['color'],
         "Comments": request.POST['describe'],
     }
-    return render(request, "results.html", context)
+    return redirect('/')
 
 
