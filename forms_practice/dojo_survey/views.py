@@ -6,13 +6,14 @@ def index(request):
 def results(request):
     print(request.POST)
     
-    request.session["Name"] = request.POST['name']
-    request.session["Gender"] = request.POST['gender']
-    request.session["Location"] = request.POST['location']
-    request.session["Language"] = request.POST['favorite language']
-    request.session["Color"] = request.POST['color']
-    request.session["Comments"] = request.POST['describe']
+    request.session['name'] = request.POST['name']
+    request.session['gender'] = request.POST['gender']
+    request.session['location'] = request.POST['location']
+    request.session['language'] = request.POST['favorite language']
+    request.session['color'] = request.POST['color']
+    request.session['comments'] = request.POST['describe']
+    return redirect('/success')
 
-    return redirect('/')
-
+def success(request):
+    return render(request, "results.html")
 
