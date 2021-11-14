@@ -9,54 +9,64 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">  
 </head>
 <body>
+    <div id="wrapper">
     <form>
         <label for="name">Your Name:</label> 
         <input type=text id=name name=name>
 
-        <p>Select Gender:</p>
-        <label for= "male">Male:</label>
-        <input type="radio" id=male name=gender value="male">
+        <div class="gender">
+            <p>Select Gender:</p>
+            <label for= "male">Male:</label>
+            <input type="radio" id=male name=gender value="male">
 
-        <label for= "female">Female:</label>
-        <input type="radio" id=female name=gender value="female">
+            <label for= "female">Female:</label>
+            <input type="radio" id=female name=gender value="female">
 
-        <label for= "other">Other:</label>
-        <input type="radio" id=other name=gender value="other">
+            <label for= "other">Other:</label>
+            <input type="radio" id=other name=gender value="other">
+        </div>
 
-        <p>Dojo Location:</p>
-        <select name='Favorite language'>
-            <option value="blank"> </option>
-            <option value="online">Online</option>
-            <option value="houston">Houston</option>
-            <option value="san_jose">San Jose</option>
-            <option value="chicago">Chicago</option>
-        </select>
+        <div class="location">
+            <p>Dojo Location:</p>
+            <select name='Favorite language'>
+                <option value="blank"> </option>
+                <option value="online">Online</option>
+                <option value="houston">Houston</option>
+                <option value="san_jose">San Jose</option>
+                <option value="chicago">Chicago</option>
+            </select>
+        </div>    
 
-        <p>Favorite Language:</p>
-        <select name='Favorite language'>
-            <option value="blank"></option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="html">HTML</option>
-            <option value="decline">Prefer not to say</option>
-        </select>
+        <div class="language">
+            <p>Favorite Language:</p>
+            <select name='Favorite language'>
+                <option value="blank"></option>
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="html">HTML</option>
+                <option value="decline">Prefer not to say</option>
+            </select>
+        </div>
 
-        <p>Favorite Color:</p>
-        <label for="blue">Blue</label>
-        <input type="checkbox" id="blue" name="color" value="blue">
-        <label for="green">Green</label>
-        <input type="checkbox" id="green" name="color" value="green">
-        <label for="red">Red</label>
-        <input type="checkbox" id="red" name="color" value="red">
-        <label for="black">Black</label>
-        <input type="checkbox" id="black" name="color" value="black">
-        <label for="purple">Purple</label>
-        <input type="checkbox" id="purple" name="color" value="purple">
+        <div class="color">
+            <p>Favorite Color:</p>
+            <label for="blue">Blue</label>
+            <input type="checkbox" id="blue" name="color" value="blue">
+            <label for="green">Green</label>
+            <input type="checkbox" id="green" name="color" value="green">
+            <label for="red">Red</label>
+            <input type="checkbox" id="red" name="color" value="red">
+            <label for="black">Black</label>
+            <input type="checkbox" id="black" name="color" value="black">
+            <label for="purple">Purple</label>
+            <input type="checkbox" id="purple" name="color" value="purple">
+        </div>
 
         <p>Comment (optional):</p>
         <textarea name='describe'></textarea>
 
         <input type="submit" value="Submit!">
-    </form>    
+    </form> 
+    </div>     
 </body>
 </html>

@@ -1,4 +1,16 @@
+
 form{
     border: solid;
-    border:
+    padding: 20px;
+    height:auto;
+    width: 400px;
+    
+}
+
+p{
+    font-weight: bold;
+}
+
+.gender{
+    display: block;
 }
