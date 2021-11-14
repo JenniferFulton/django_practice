@@ -5,14 +5,14 @@ def index(request):
 
 def results(request):
     print(request.POST)
-    context = {
-        "Name": request.POST['name'],
-        "Gender": request.POST['gender'],
-        "Location": request.POST['location'],
-        "Language": request.POST['favorite language'],
-        "Color": request.POST['color'],
-        "Comments": request.POST['describe'],
-    }
+    
+    request.session["Name"] = request.POST['name']
+    request.session["Gender"] = request.POST['gender']
+    request.session["Location"] = request.POST['location']
+    request.session["Language"] = request.POST['favorite language']
+    request.session["Color"] = request.POST['color']
+    request.session["Comments"] = request.POST['describe']
+
     return redirect('/')
 
 
