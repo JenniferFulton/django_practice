@@ -11,4 +11,4 @@ def word(request):
     return render(request, "random_word.html", context)
 
 def reset(request):
-    return HttpResponse('Will reset/redirect')
+    return render(request, "reset.html")

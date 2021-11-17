@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    {{word}}
-    <form action= "/random_word/reset" method= "post">
+    <!-- Will need to have original word that was generated from  -->
+    <!-- Will also need attempt #(length of context--session-1) -->
+    <form action= "/random_word" method= "post">
         {% csrf_token %}
-        <input type= "submit" value="Reset">
+        <input type= "submit" value="Generate New Word!">
     </form>
 </body>
 </html>
