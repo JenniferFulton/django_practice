@@ -2,15 +2,13 @@ from django.shortcuts import render, HttpResponse
 from django.utils.crypto import get_random_string
 
 def index(request):
-    word = get_random_string(length=14)
-    
-    context = {
-        'word': word
-    }
-    return render(request, "index.html", context)
+    return render(request, "index.html")
 
 def word(request):
-    return HttpResponse('Random word will generate')
+    context = {
+        'word': get_random_string(length=14)
+    }
+    return render(request, "random_word.html", context)
 
 def reset(request):
     return HttpResponse('Will reset/redirect')

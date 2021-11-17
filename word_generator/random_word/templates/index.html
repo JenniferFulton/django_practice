@@ -10,7 +10,12 @@
 </head>
 <body>
     <div id="wrapper">
-        {{word}}
+        <form action= "/random_word" method= "post">
+            {% csrf_token %}
+            <input type= "submit" value="GENERATE!">
+        </form>
+
+        
     </div>
 </body>
 </html>
