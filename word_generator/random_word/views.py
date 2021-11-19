@@ -8,7 +8,6 @@ def word(request):
     context = {
         'word': get_random_string(length=14)
     }
-    return render(request, "random_word.html", context)
+    return render(request, "random_word.html", context,)
 
-def reset(request):
-    return render(request, "reset.html")
+

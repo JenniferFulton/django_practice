@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- for loop for len-1 of session dictionary to get attempt # -->
+    <p>Random Word: attempt #insert loop length here</p>
     {{word}}
-    <form action= "/random_word/reset" method= "post">
+    <form action= "/random_word" method= "post">
         {% csrf_token %}
-        <input type= "submit" value="Reset">
+        <input type= "submit" value="New Word">
     </form>
 </body>
 </html>

@@ -10,6 +10,8 @@
 </head>
 <body>
     <div id="wrapper">
+        <h3>Random Word</h3>
+        <p>Press generate to get a word!</p>
         <form action= "/random_word" method= "post">
             {% csrf_token %}
             <input type= "submit" value="GENERATE!">
