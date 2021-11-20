@@ -9,6 +9,37 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">    
 </head>
 <body>
-    <h1>I'm ready to make some money!</h1>
+    <div id="wrapper">
+        <p>Your Gold: (WILL NEED RUNNING TOTAL HERE)</p>
+
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <div class="farm">
+                <h3>Farm</h3>
+                <p>(earns 10-20 golds) </p>
+                <input type="submit" value="Find Gold!">
+            </div>
+
+            <div class="cave">
+                <h3>Cave</h3>
+                <p>(earns 5-10 golds) </p>
+                <input type="submit" value="Find Gold!">
+            </div>
+
+            <div class="house">
+                <h3>House</h3>
+                <p>(earns 2-5 golds) </p>
+                <input type="submit" value="Find Gold!">
+            </div>
+
+            <div class="casino">
+                <h3>Casino</h3>
+                <p>(earns/takes 0-50 golds) </p>
+                <input type="submit" value="Find Gold!">
+            </div>
+        </form>
+
+        <p>Activities: (WILL NEED RUNNING ACTIVITIES HERE)</p>
+    </div>
 </body>
 </html>
