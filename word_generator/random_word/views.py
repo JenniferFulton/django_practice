@@ -5,9 +5,9 @@ def index(request):
     return render(request, "index.html")
 
 def word(request):
-    context = {
-        'word': get_random_string(length=14)
-    }
-    return render(request, "random_word.html", context,)
+    print(request.session)
+    request.session['word']= request.POST[(get_random_string(length=14))]
+    request.session['count'].append([request.POST[(get_random_string(length=14))]])
+    return render(request, "random_word.html")
 
 
