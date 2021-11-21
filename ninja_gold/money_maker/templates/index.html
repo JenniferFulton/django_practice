@@ -11,44 +11,53 @@
 <body>
     <div id="wrapper">
         <p>Your Gold: {{request.session.gold}}</p>
-
-        <form action="/process_money" method="post">
-            {% csrf_token %}
-            <div class="farm">
+            
+        <div class="farm">
+            <form action="/process_money" method="post">
+                {% csrf_token %}
                 <h3>Farm</h3>
                 <p>(earns 10-20 golds) </p>
                 <input type="hidden" name="place" value="farm"/>
                 <input type="submit" value="Find Gold!">
-            </div>
+            </form>
+        </div>
+            
 
-            <div class="cave">
+        <div class="cave">
+            <form action="/process_money" method="post">
+                {% csrf_token %}
                 <h3>Cave</h3>
                 <p>(earns 5-10 golds) </p>
                 <input type="hidden" name="place" value="cave"/>
                 <input type="submit" value="Find Gold!">
-            </div>
+            </form>
+        </div>
 
-            <div class="house">
+        <div class="house">
+            <form action="/process_money" method="post">
+                {% csrf_token %}
                 <h3>House</h3>
                 <p>(earns 2-5 golds) </p>
                 <input type="hidden" name="place" value="house"/>
                 <input type="submit" value="Find Gold!">
-            </div>
+            </form>    
+        </div>
 
-            <div class="casino">
+        <div class="casino">
+            <form action="/process_money" method="post">
+                {% csrf_token %}
                 <input type="hidden" name="place" value="casino"/>
                 <h3>Casino</h3>
                 <p>(earns/takes 0-50 golds) </p>
                 <input type="submit" value="Find Gold!">
-            </div>
-        </form>
+            </form>
+        </div>
+    
 
         <h3>Activities:</h3>
-        <ul>
             {% for activity in request.session.activities %}
-            <li>{{ activity }}</li>
+            <p>{{ activity }}</p>
             {% endfor %}
-        </ul>
     </div>
 </body>
 </html>
