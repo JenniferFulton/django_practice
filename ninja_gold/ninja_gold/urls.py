@@ -17,5 +17,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('money_maker.urls')),
-    path('process_money', include('money_maker.urls'))
+    path('process_money', include('money_maker.urls')),
 ]
