@@ -1,3 +1,79 @@
-h1{
-    color: green;
+*{ 
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    height: auto;
+    width: 1000px;
+    padding: 20px;
+}
+
+.gold{
+    display:block;
+    border-style: solid;
+    height: auto;
+    width: 300px;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+
+.farm{
+    border-style: solid;
+    padding: 20px;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    margin: 20px;
+    display: inline-flex;
+
+}
+
+.cave{
+    border-style: solid;
+    padding: 20px;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    margin: 20px;
+    display: inline-flex;
+}
+
+.house{
+    border-style: solid;
+    padding: 20px;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    margin: 20px;
+    display: inline-flex;
+}
+
+.casino{
+    border-style: solid;
+    padding: 20px;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    margin: 20px;
+    display: inline-flex;
+}
+
+.act{
+    margin-left: 20px;
+}
+
+.activities{
+    border-style: solid;
+    margin: 20px;
+    padding: 10px;
+}
+
+h3{
+    padding: 10px;
+}
+
+p{
+    padding-bottom: 10px;
 }
