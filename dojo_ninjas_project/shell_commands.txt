@@ -1,24 +1,35 @@
-Create the Dojo class model
-
-Create the Ninja class model
-
-Create and run the migration files to create the tables in your database
-
-Create a .txt file where you'll save each of your queries from below
-
-Run the shell and import your models
+Open Shell:
+    python manage.py shell
+ Import app:
+    from dojo_ninjas_app. models import *
 
 Query: Create 3 new dojos
+    Dojo.objects.create(name = "", city = "", state = ""
+    Dojo.objects.create(name = "", city = "", state = ""
+    Dojo.objects.create(name = "", city = "", state = ""
 
 Query: Delete the 3 dojos you just created
 
 Query: Create 3 more dojos
+    Dojo.objects.create(name = "", city = "", state = ""
+    Dojo.objects.create(name = "", city = "", state = ""
+    Dojo.objects.create(name = "", city = "", state = ""
 
 Query: Create 3 ninjas that belong to the first dojo
+    Ninja.objects.create(first_name = "", last_name = "")
+    Ninja.objects.create(first_name = "", last_name = "")
+    Ninja.objects.create(first_name = "", last_name = "")
 
 Query: Create 3 ninjas that belong to the second dojo
+    Ninja.objects.create(first_name = "", last_name = "")
+    Ninja.objects.create(first_name = "", last_name = "")
+    Ninja.objects.create(first_name = "", last_name = "")
+
 
 Query: Create 3 ninjas that belong to the third dojo
+    Ninja.objects.create(first_name = "", last_name = "")
+    Ninja.objects.create(first_name = "", last_name = "")
+    Ninja.objects.create(first_name = "", last_name = "")
 
 Query: Retrieve all the ninjas from the first dojo
 
@@ -31,3 +42,4 @@ Add a new text field called "desc" to your Dojo class
 Create and run the migration files to update the table in your database. If needed, provide a default value of "old dojo"
 
 Query: Create a new dojo
+    Dojo.objects.create(name = "", city = "", state = ""
