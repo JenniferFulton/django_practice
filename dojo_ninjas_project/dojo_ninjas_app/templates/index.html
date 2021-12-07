@@ -9,5 +9,9 @@
 <body>
     <p>Testing route and models connection</p>
     <p>{{all_dojos}}</p>
+    <ul>{% for dojo in all_dojos %}
+        <li>{{dojo.name}}</li>
+    {% endfor %}</ul>
 </body>
 </html>
+
