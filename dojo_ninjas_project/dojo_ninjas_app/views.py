@@ -1,4 +1,9 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
+from .models import Dojo, Ninja
 
 def index(request):
-    return HttpResponse("just practicing my routing!")
+    context = {
+        'all_dojos': Dojo.objects.all(),
+        'all_ninjas': Ninja.objects.all(),
+    }
+    return render(request, "index.html", context)
