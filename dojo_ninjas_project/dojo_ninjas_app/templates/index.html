@@ -7,7 +7,37 @@
     <title>Dojo and Ninjas</title>
 </head>
 <body>
-    <p>Testing route and models connection</p>
+
+    <h3>Add a Dojo</h3>
+    <form action="/create" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+
+        <label for="name">City</label>
+        <input type="text" id="city" name="city">
+
+        <label for="name">State</label>
+        <input type="text" id="state" name="state">
+
+        <input type="submit" value="Add!">
+    </form>
+
+    <h3>Add a Ninja</h3>
+    <form action="/create" method="POST">
+        <label for="name">First Name</label>
+        <input type="text" id="first_name" name="first_name">
+
+        <label for="name">Last Name</label>
+        <input type="text" id="last_name" name="last_name">
+
+        <label for="name">Dojo</label>
+        <input type="" id="state" name="state">
+
+        <input type="submit" value="Add!">
+    </form>
+    
+    
+    <h3>All the Dojos</h3>
     <p>{{all_dojos}}</p>
     <ul>{% for dojo in all_dojos %}
         <li>{{dojo.name}}</li>
