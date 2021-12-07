@@ -7,7 +7,36 @@
     <title>Users</title>
 </head>
 <body>
-    <p>testing rendering of html page and import from models</p>
-    <p>{{all_users}}</p>
+    <h3>All the Users</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{% for user in all_users %}
+                    <p>{{user.id}}</p>
+                    {% endfor %}</td>
+
+                <td>{% for user in all_users %}
+                    <p>{{user.first_name}} {{user.last_name}}</p>
+                    {% endfor %}</td>
+
+                <td>{% for user in all_users %}
+                    <p>{{user.email}}</p>
+                    {% endfor %}</td>
+
+                <td>{% for user in all_users %}
+                    <p>{{user.age}}</p>
+                    {% endfor %}</td>
+            </tr>
+        </tbody>
+    </table>   
 </body>
 </html>
