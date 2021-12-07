@@ -1,4 +1,8 @@
 from django.shortcuts import render, HttpResponse
+from .models import User
 
 def index(request):
-    return HttpResponse("Does this route work?")
+    context = {
+        "all_users": User.objects.all(),
+    }
+    return render(request, "index.html", context)
