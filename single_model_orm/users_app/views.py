@@ -8,5 +8,7 @@ def index(request):
     return render(request, "index.html", context)
 
 def create(request):
-    
-    return redirect("/")
+    if request.method == "POST":
+        print(request.POST)
+        User.objects.create(first_name= request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], age= int(request.POST['age']))
+    return redirect('/')
