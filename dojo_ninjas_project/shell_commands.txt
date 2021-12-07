@@ -1,41 +1,51 @@
 Open Shell:
     python manage.py shell
  Import app:
-    from dojo_ninjas_app. models import *
+    from dojo_ninjas_app.models import Dojo, Ninja
 
 Query: Create 3 new dojos
-    Dojo.objects.create(name = "", city = "", state = ""
-    Dojo.objects.create(name = "", city = "", state = ""
-    Dojo.objects.create(name = "", city = "", state = ""
+    Dojo.objects.create(name = "Science", city = "Wilmington", state = "NC")
+    Dojo.objects.create(name = "Tech", city = "SanFran", state = "CA")
+    Dojo.objects.create(name = "Engineering", city = "Baltimore", state = "MD")
 
 Query: Delete the 3 dojos you just created
+    Dojo.objects.all().delete()
 
 Query: Create 3 more dojos
-    Dojo.objects.create(name = "", city = "", state = ""
-    Dojo.objects.create(name = "", city = "", state = ""
-    Dojo.objects.create(name = "", city = "", state = ""
+    Dojo.objects.create(name = "Art", city = "SanFran", state = "CA")
+    Dojo.objects.create(name = "Math", city = "Eldersburg", state = "MD")
+    Dojo.objects.create(name = "Surfing", city = "Wrightsville", state = "NC")
 
 Query: Create 3 ninjas that belong to the first dojo
-    Ninja.objects.create(first_name = "", last_name = "")
-    Ninja.objects.create(first_name = "", last_name = "")
-    Ninja.objects.create(first_name = "", last_name = "")
+    art_dojo = Dojo.objects.get(id=4)
+    Ninja.objects.create(first_name = "Jen", last_name = "Fulton", dojo = art_dojo)
+    Ninja.objects.create(first_name = "Zoe", last_name = "Matthews", dojo = art_dojo)
+    Ninja.objects.create(first_name = "Ruby", last_name = "Lord", dojo = art_dojo)
 
 Query: Create 3 ninjas that belong to the second dojo
-    Ninja.objects.create(first_name = "", last_name = "")
-    Ninja.objects.create(first_name = "", last_name = "")
-    Ninja.objects.create(first_name = "", last_name = "")
+    math_dojo = Dojo.objects.get(id=5)
+    Ninja.objects.create(first_name = "Bob", last_name = "Reeves", dojo = math_dojo)
+    Ninja.objects.create(first_name = "DJ", last_name = "Evans", dojo = math_dojo)
+    Ninja.objects.create(first_name = "Ean", last_name = "Wilson", dojo = math_dojo)
 
 
 Query: Create 3 ninjas that belong to the third dojo
-    Ninja.objects.create(first_name = "", last_name = "")
-    Ninja.objects.create(first_name = "", last_name = "")
-    Ninja.objects.create(first_name = "", last_name = "")
+    surf_dojo = Dojo.objects.get(id=6)
+    Ninja.objects.create(first_name = "Merg", last_name = "Fulton", dojo = surf_dojo)
+    Ninja.objects.create(first_name = "Brooke", last_name = "Lily", dojo = surf_dojo)
+    Ninja.objects.create(first_name = "Sophie", last_name = "Girl", dojo = surf_dojo)
 
 Query: Retrieve all the ninjas from the first dojo
+    some_dojo = Dojo.objects.first()
+    some_dojo.ninjas.all()
 
 Query: Retrieve all the ninjas from the last dojo
+    some_dojo = Dojo.objects.first()
+    some_dojo.ninjas.all()
 
 Query: Retrieve the last ninja's dojo
+    last_ninja = Ninja.objects.last()
+    last_ninja.dojo
 
 Add a new text field called "desc" to your Dojo class
 
