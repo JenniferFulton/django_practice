@@ -49,14 +49,16 @@
     <h3>All the Dojos</h3>
     <p>{% for dojo in all_dojos %}
         Ninjas at the {{dojo.name}} Dojo in {{dojo.city}} - {{ninja|length}}
-        {{dojo.id}}
+
             <ul>{% for ninja in all_ninjas%}
                     {% if ninja.dojo.id == dojo.id %} 
                         <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+
                     {% endif %}
                 {% endfor %}
                 </li>
             </ul>
+            
         <form action="/delete" method="POST">
             {% csrf_token %}
             <input type="submit" value= "Delete Dojo and Ninjas!">

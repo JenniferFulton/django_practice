@@ -10,17 +10,25 @@ def index(request):
 
 def create_dojo(request):
     if request.method == "POST":
-        new_dojo= Dojo.objects.create(name= request.POST['name'], city= request.POST['city'], state= request.POST['state'])
+            Dojo.objects.create(
+            name= request.POST['name'], 
+            city= request.POST['city'], 
+            state= request.POST['state'])
     return redirect('/')    
 
 def create_ninja(request):
     if request.method == "POST":
         selected_dojo = Dojo.objects.get(id = request.POST['dojo'])
-        new_ninja= Ninja.objects.create(first_name= request.POST['first_name'], last_name= request.POST['last_name'], dojo= selected_dojo)
+        Ninja.objects.create(
+            first_name= request.POST['first_name'], 
+            last_name= request.POST['last_name'], 
+            dojo= selected_dojo)
     return redirect('/')
 
 def delete(request):
     if request.method == "POST":
-        chosen_dojo = Dojo.objects.get(id = request.POST['dojo'])
-        chosen_dojo.delete
+        print(request.POST)
+        # what is priniting to console does not have any dojo info
+        # chosen_dojo = Dojo.objects.get(id = request.POST['dojo'])
+        # chosen_dojo.delete()
     return redirect('/')
