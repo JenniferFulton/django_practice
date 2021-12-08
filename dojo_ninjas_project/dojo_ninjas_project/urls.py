@@ -17,4 +17,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include("dojo_ninjas_app.urls")),
+    path('create_dojo', include("dojo_ninjas_app.urls")),
+    path('create_ninja', include("dojo_ninjas_app.urls")),
+    path('delete', include("dojo_ninjas_app.urls")),
 ]
