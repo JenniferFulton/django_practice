@@ -1,6 +1,16 @@
 Query: Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby
+    Book.objects.create(title = "C Sharp", desc = "C# is an object-oriented, component-oriented programming language" )
+    Book.objects.create(title = "Java", desc = "Most used programming language, can be used in front-end and back-end programming" )
+    Book.objects.create(title = "Python", desc = "Best language ever" )
+    Book.objects.create(title = "PHP", desc = "PHP is a popular general-purpose scripting language that is especially suited to web development." )
+    Book.objects.create(title = "Ruby", desc = "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write." )
 
 Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevsky, William Shakespeare, Lau Tzu
+    Author.objects.create(first_name = "Jane", last_name = "Austen")
+    Author.objects.create(first_name = "Emily", last_name = "Dickinson")
+    Author.objects.create(first_name = "Fyodor", last_name = "Dostoevsky")
+    Author.objects.create(first_name = "William", last_name = "Shakespeare")
+    Author.objects.create(first_name = "Lau", last_name = "Tzu")
 
 Add a new text field in the authors table called 'notes'.
 
