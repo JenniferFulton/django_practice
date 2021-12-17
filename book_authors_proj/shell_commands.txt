@@ -13,27 +13,56 @@ Query: Create 5 different authors: Jane Austen, Emily Dickinson, Fyodor Dostoevs
     Author.objects.create(first_name = "Lau", last_name = "Tzu")
 
 Add a new text field in the authors table called 'notes'.
+    Null will be added to notes feild for instances that already exist.
 
 Create and run the migration files to update the table in your database.
+    python manage.py makemigrations books_authors_app <<<Have to include app after a change 
 
 Query: Change the name of the C Sharp book to C#
+    c = Book.objects.get(id=1)
+    c.title = "C#"
+    c.save
 
 Query: Change the first name of the 4th author to Bill
+    a = Author.objects.get(id=4)
+    a.first_name = "Bill"
+    a.save()
 
 Query: Assign the first author to the first 2 books
+    austen = Author.objects.get(id=1)
+    java = Book.objects.get(id=2)
+    austen.books.add(c)
+    austen.books.add(java)
 
 Query: Assign the second author to the first 3 books
+    dickinson = Author.objects.get(id=2)
+    python = Book.objects.get(id=3)
 
 Query: Assign the third author to the first 4 books
+    dost = Author.objects.get(id=3)
+    php = Book.object.get(id=4)
+    dost.books.add(c)
+    dost.books.add(java)
+    dost.books.add(python)
+    dost.books.add(php)
 
 Query: Assign the fourth author to the first 5 books (or in other words, all the books)
+    shakespeare = Author.objects.get(id=4)
+    ruby = Books.objects.get(id=5)
+    shakespeare.books.add(c, java, python, php, ruby)
 
 Query: Retrieve all the authors for the 3rd book
+    python.authors.all()
 
 Query: Remove the first author of the 3rd book
+    python.authors.remove(dickinson)
 
 Query: Add the 5th author as one of the authors of the 2nd book
+    tzu = Author.objects.get(id=5)
+    java.authors.add(tzu)
 
 Query: Find all the books that the 3rd author is part of
+    dost.books.all()
 
 Query: Find all the authors that contributed to the 5th book
+    ruby.authors.all()
