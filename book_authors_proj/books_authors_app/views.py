@@ -10,3 +10,12 @@ def index(request):
 
 def create_book(request):
     return redirect('/')
+
+def authors(request):
+    context = {
+        'all_authors': Author.objects.all()
+    }
+    return render(request, "auth.html", context)
+
+def create_author(request):
+    return redirect('/authors')
