@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+</head>
+<body>
+    <h2>Add an Author</h2>
+    <form action = '/create_author' method="POST">
+        {% csrf_token %}
+
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name">
+
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name">
+
+        <label for="notes">Notes</label>
+        <input type="text" id="notes" name="notes">
+
+        <input type="submit" value="Add Author!">
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Notes</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for author in all_authors %}
+                <td>{{author.id}}</td>
+                <td>{{author.first_name}}</td>
+                <td>{{author.last_name}}</td>
+                <td>{{author.notes}}</td>
+                <td> 
+                        <form action='/authors/<int:ID>'' method= "POST"> 
+                            <!-- Need to make that route -->
+                            {% csrf_token %}
+                            <input type="submit" value="view">
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    
+    
+</body>
+</html>

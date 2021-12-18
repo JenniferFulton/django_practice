@@ -11,6 +11,8 @@ def index(request):
 def create_book(request):
     return redirect('/')
 
+# Need path for /books/<books.id>
+
 def authors(request):
     context = {
         'all_authors': Author.objects.all()
@@ -19,3 +21,5 @@ def authors(request):
 
 def create_author(request):
     return redirect('/authors')
+
+# Need path for /authors/<author.id>
