@@ -3,7 +3,10 @@ from .models import *
 
 
 def index(request):
-    return render(request, "index.html")
+    context = {
+        'all_books': Book.objects.all()
+    }
+    return render(request, "index.html", context)
 
 def create_book(request):
     return redirect('/')
