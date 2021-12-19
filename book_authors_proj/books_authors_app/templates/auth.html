@@ -35,18 +35,19 @@
         </thead>
         <tbody>
                 {% for author in all_authors %}
-                <td>{{author.id}}</td>
-                <td>{{author.first_name}}</td>
-                <td>{{author.last_name}}</td>
-                <td>{{author.notes}}</td>
-                <td> 
+                <tr>
+                    <td>{{author.id}}</td>
+                    <td>{{author.first_name}}</td>
+                    <td>{{author.last_name}}</td>
+                    <td>{{author.notes}}</td>
+                    <td>
                         <form action='/authors/<int:ID>'' method= "POST"> 
                             <!-- Need to make that route -->
                             {% csrf_token %}
                             <input type="submit" value="view">
-                </td>
+                    </td>
+                </tr>   
                 {% endfor %}
-            </tr>
         </tbody>
     </table>
     

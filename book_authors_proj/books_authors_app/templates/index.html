@@ -14,8 +14,8 @@
         <label for="title">Title</label>
         <input type="text" id="title" name="title">
 
-        <label for="decription">Description</label>
-        <input type="text" id="decription" name="decription">
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description">
 
         <input type="submit" value="Add Book!">
     </form>
@@ -29,7 +29,8 @@
             </tr>
         </thead>
         <tbody>
-                {% for book in all_books %}
+            {% for book in all_books %}
+            <tr>    
                 <td>{{book.id}}</td>
                 <td>{{book.title}}</td>
                 <td> 
@@ -37,11 +38,9 @@
                             <!-- Need to make that route -->
                             {% csrf_token %}
                             <input type="submit" value="view">
-
                 </td>
-                
-                {% endfor %}
             </tr>
+            {% endfor %}
         </tbody>
     </table>
     
