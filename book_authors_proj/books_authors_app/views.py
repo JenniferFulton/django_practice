@@ -17,7 +17,14 @@ def create_book(request):
         )
     return redirect('/')
 
-# Need path for /books/<books.id>
+def book_info(request, book_id):
+    book = Book.objects.get(id=book_id)
+    context = {
+        "book": book,
+        "authors": Author.objects.exclude(books__id=book_id)
+    }
+
+    return render(request,'book_info.html', context)
 
 def authors(request):
     context = {
@@ -34,4 +41,13 @@ def create_author(request):
         )
     return redirect('/authors')
 
-# Need path for /authors/<author.id>
+def author_info(request, author_id):
+    author = Author.objects.get(id=author_id)
+    context = {
+        "author": author,
+        "books": Book.objects.exclude(authors__id=author_id)
+    }
+    return render(request, "auth_info.html", context)
+
+
+

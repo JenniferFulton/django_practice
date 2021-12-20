@@ -18,8 +18,8 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('books_authors_app.urls')),
     path('create_book', include('books_authors_app.urls')),
-    # Need path for /books/<books.id>
+    path('books/<int:book_id>', include('books_authors_app.urls')),
     path('authors', include('books_authors_app.urls')),
     path('create_author', include('books_authors_app.urls')),
-    # Need path for /authors/<author.id>
+    path('authors/<int:author_id>', include('books_authors_app.urls')),
 ]

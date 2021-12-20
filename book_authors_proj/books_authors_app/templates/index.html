@@ -34,10 +34,7 @@
                 <td>{{book.id}}</td>
                 <td>{{book.title}}</td>
                 <td> 
-                        <form action='/books/<int:ID>'' method= "POST"> 
-                            <!-- Need to make that route -->
-                            {% csrf_token %}
-                            <input type="submit" value="view">
+                    <td><a href="/authors/{{ book.id }}">View</a></td>
                 </td>
             </tr>
             {% endfor %}
