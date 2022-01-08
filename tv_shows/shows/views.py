@@ -13,3 +13,5 @@ def all_shows(request):
     }
     return render(request, 'all_shows.html', context)
 
+def new_show(request):
+    return render(request, 'new_show.html')
