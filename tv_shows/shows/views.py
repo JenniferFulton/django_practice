@@ -14,4 +14,20 @@ def all_shows(request):
     return render(request, 'all_shows.html', context)
 
 def new_show(request):
-        return render(request, 'new_show.html')
+    return render(request, 'new_show.html')
+
+def create (request):
+    Show.objects.create(
+        title = request.POST['title'],
+        network = request.POST['network'],
+        release_date = request.POST['release_date'],
+        description = request.POST['description']
+    )
+    return redirect('/shows/<int:show_id>')
+
+def show_info(request, show_id):
+    context = {
+        "show": Show.objects.get(id=show_id)
+    }
+
+    return render(request, 'show_info.html', context)
