@@ -28,5 +28,14 @@
     </form> 
 
     <a href="/shows/{{update_show.id}}">Back to Show</a>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if messages.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+    
 </body>
 </html>

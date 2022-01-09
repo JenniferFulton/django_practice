@@ -26,7 +26,7 @@ def create (request):
         if len(errors) > 0:
             for key, value in errors.items():
                 messages.error(request, value)
-            return redirect('shows/new')
+            return redirect('/shows/new')
         else:
             Show.objects.create(
                 title = request.POST['title'],
@@ -55,15 +55,24 @@ def edit_show(request, show_id):
 def update_show_info(request, show_id):    
     #will allow you to edit a show's details and return back to show's info page
     if request.method == "POST":
-        to_update = Show.objects.get(id=show_id)
+        errors = Show.objects.basic_validator(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/shows/<int:show_id>/edit')
+        
+        else:
+            to_update = Show.objects.get(id=show_id)
 
-        to_update.title = request.POST['title']
-        to_update.network = request.POST['network']
-        to_update.release_date = request.POST['release_date']
-        to_update.description = request.POST['description']
-        to_update.save()
+            to_update.title = request.POST['title']
+            to_update.network = request.POST['network']
+            to_update.release_date = request.POST['release_date']
+            to_update.description = request.POST['description']
+            to_update.save()
 
-        return redirect('/shows')
+            messages.success(request, "Show successfully updated!")
+
+            return redirect('/shows')
 
 def delete_show(request, show_id):
     #Will delete a show and return to All Shows page
