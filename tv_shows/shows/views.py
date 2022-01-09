@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Show
+from django.contrib import messages
 
 def root_route(request):
     #Will redirect to All shows page
@@ -21,12 +22,19 @@ def new_show(request):
 def create (request):
     #When the user submits a new show
     if request.method == "POST":
-        Show.objects.create(
-            title = request.POST['title'],
-            network = request.POST['network'],
-            release_date = request.POST['release_date'],
-            description = request.POST['description']
-        )
+        errors = Show.objects.basic_validator(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.errors(request, value)
+            return redirect('shows/new')
+        else:
+            Show.objects.create(
+                title = request.POST['title'],
+                network = request.POST['network'],
+                release_date = request.POST['release_date'],
+                description = request.POST['description']
+            )
+            messages.success(request, "New show successfully created!")
     return redirect('/shows')
 
 def show_info(request, show_id):
@@ -54,7 +62,7 @@ def update_show_info(request, show_id):
         to_update.release_date = request.POST['release_date']
         to_update.description = request.POST['description']
         to_update.save()
-        
+
         return redirect('/shows')
 
 def delete_show(request, show_id):

@@ -16,7 +16,7 @@ class ShowManager(models.Manager):
         if len(postData['description']) < 10:
             errors['description'] = "Please provide more details! Description should be atleast 10 characters"
 
-        postData['release_date'] = [MaxValueValidator(limit_value = date.today())]
+        # postData['release_date'] = [MaxValueValidator(limit_value = date.today())]
         
         return errors
 
