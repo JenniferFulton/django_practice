@@ -53,11 +53,13 @@ def update_show_info(request, show_id):
         update_show.network = request.POST['network'],
         update_show.release_date = request.POST['release_date'],
         update_show.description = request.POST['description']
+        
         update_show.save()
-
         return redirect('/shows/<int:show_id>')
 
 def delete_show(request, show_id):
-    Show.objects.delete(id=show_id)
+    #Will delete a show and return to All Shows page
+    to_delete = Show.objects.get(id=show_id)
+    to_delete.delete()
     return redirect('/shows')
     
