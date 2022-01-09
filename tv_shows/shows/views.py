@@ -25,7 +25,7 @@ def create (request):
         errors = Show.objects.basic_validator(request.POST)
         if len(errors) > 0:
             for key, value in errors.items():
-                messages.errors(request, value)
+                messages.error(request, value)
             return redirect('shows/new')
         else:
             Show.objects.create(
