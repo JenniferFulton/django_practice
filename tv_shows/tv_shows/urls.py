@@ -20,6 +20,9 @@ urlpatterns = [
     path('shows', include('shows.urls')),
     path('shows/new', include('shows.urls')),
     path('create', include('shows.urls')),
-    path('shows/<show_id>', include('shows.urls')),
-    path('shows/<show_id>/update', include('shows.urls')),
+    path('shows/<int:show_id>', include('shows.urls')),
+    path('shows/<int:show_id>/edit', include('shows.urls')),
+    path('update/<int:show_id>', include('shows.urls')),
+    path('delete/<int:show_id>', include('shows.urls')),
+
 ]

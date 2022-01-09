@@ -27,7 +27,7 @@ def create (request):
             release_date = request.POST['release_date'],
             description = request.POST['description']
         )
-    return redirect('/shows/<show_id>')
+    return redirect('/shows/<int:show_id>')
 
 def show_info(request, show_id):
     #This page will show the details of a speicific show
@@ -37,9 +37,17 @@ def show_info(request, show_id):
     return render(request, 'show_info.html', context)
 
 def edit_show(request, show_id):
+    context = {
+        'update_show': Show.objects.get(id=show_id)
+    }
+    return render(request, 'edit_show.html', context)
+
+    
+    
+def update_show_info(request, show_id):    
     #will allow you to edit a show's details and return back to show's info page
     if request.method == "POST":
-        update_show = Show.objects.get(show_id)
+        update_show = Show.objects.get(id=show_id)
 
         update_show.title = request.POST['title'],
         update_show.network = request.POST['network'],
@@ -47,4 +55,9 @@ def edit_show(request, show_id):
         update_show.description = request.POST['description']
         update_show.save()
 
-        return redirect('/shows/<show_id>')
+        return redirect('/shows/<int:show_id>')
+
+def delete_show(request, show_id):
+    Show.objects.delete(id=show_id)
+    return redirect('/shows')
+    
