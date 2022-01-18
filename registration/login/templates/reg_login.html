@@ -7,8 +7,42 @@
     <title>Registration and Login</title>
 </head>
 <body>
-    <h2>Registration</h2>
+    <div id=wrapper>
+        <div class='register'>
+            <h2>Registration</h2>
+            <form action='/registered' method='POST'>
+                {% csrf_token %}
+                <label for='first_name'>First Name:</label>
+                <input type='text' id='first_name' name='first_name'>
 
-    <h2>Login</h2>
+                <label for='last_name'>Last Name:</label>
+                <input type='text' id='last_name' name='last_name'>
+
+                <label for='email'>Email:</label>
+                <input type='email' id='email' name='email'>
+
+                <label for='password'>Password:</label>
+                <input type='password' id='password' name='password'>
+
+                <label for='confirm_pw'>Confirm PW:</label>
+                <input type='password' id='confirm_pw' name='confirm_pw'>
+
+                <input type='submit' value='Register'>
+            </form>
+        </div>
+
+        <div class='login'>
+            <h2>Login</h2>
+            <form action='/success' method='POST'>
+                <label for='email'>Email:</label>
+                <input type='email' id='email' name='email'>
+
+                <label for='password'>Password:</label>
+                <input type='password' id='password' name='password'>
+
+                <input type='submit' value='Log In'>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
