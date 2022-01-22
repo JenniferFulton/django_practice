@@ -14,13 +14,15 @@ class UserManager(models.Manager):
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = 'Invalid email address'
 
+        if len(postData['password']) < 8:
+            errors['password'] = 'Passoword must be atleast 8 characters'
 
-
-        
-        
+        if postData['password'] != postData['confirm_pw']:
+            errors['confirm_pw'] = 'Passwords do not match'
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=50)
+    objects = UserManager()
