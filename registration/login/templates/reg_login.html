@@ -43,11 +43,12 @@
         <div class='login'>
             <h2>Login</h2>
             <form action='/success' method='POST'>
+                {% csrf_token %}
                 <label for='logemail'>Email:</label>
                 <input type='logemail' id='logemail' name='logemail'>
 
                 <label for='logpassword'>Password:</label>
-                <input type='logpassword' id='logpassword' name='logpassword'>
+                <input type='password' id='logpassword' name='logpassword'>
 
                 <input type='submit' value='Log In'>
             </form>

@@ -40,7 +40,13 @@ def login(request):
 
     else:
         request.session['logged_user'] = User.objects.filter(email=request.POST['logemail'])
+        print(request.session['logged_user'])
+        return redirect('/success')
 
 def success(request):
     #'/success' will allow user to be at their homepage once they are logged in
     return render(request, 'login_success.html')
+
+def logout(request):
+    request.session.flush()
+    return redirect('/')

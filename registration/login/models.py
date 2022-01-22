@@ -1,5 +1,6 @@
 from django.db import models
 import re
+import bcrypt
 
 class UserManager(models.Manager):
     def register_validator(self, postData):
@@ -32,6 +33,9 @@ class UserManager(models.Manager):
         
         if len(check_user) == 0:
             errors['no_user'] = 'User does not exist, please register first'
+
+        elif not bcrypt.checkpw(postData['logpassword'].encode(), check_user[0].password.encode()):
+            errors['invalid_pw'] = 'Password does not match username'
     
 
 
