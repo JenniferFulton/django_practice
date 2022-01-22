@@ -42,10 +42,10 @@
 
         <div class='login'>
             <h2>Login</h2>
-            <form action='/success' method='POST'>
+            <form action='/login' method='POST'>
                 {% csrf_token %}
                 <label for='logemail'>Email:</label>
-                <input type='logemail' id='logemail' name='logemail'>
+                <input type='email' id='logemail' name='logemail'>
 
                 <label for='logpassword'>Password:</label>
                 <input type='password' id='logpassword' name='logpassword'>
