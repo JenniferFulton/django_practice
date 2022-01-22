@@ -25,3 +25,12 @@ def register(request):
             )
             messages.success(request, "Registration successful, proceeed to login!")
         return redirect('/')
+
+def login(request):
+    #'/login' will verify email and password to allow user to login
+    #if no errors return redirect('/success')
+    #if errors return redirect('/')
+
+def success(request):
+    #'/success' will allow user to be at their homepage once they are logged in
+    return render(request, 'login_success.html')
