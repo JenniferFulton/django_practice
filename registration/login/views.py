@@ -44,10 +44,9 @@ def login(request):
 
 def success(request):
     #'/success' will allow user to be at their homepage once they are logged in
-    #Caanot get to route with GET request if they are not logged in
+    #Cannot get to route with GET request if they are not logged in
     if 'user' not in request.session:
         return redirect('/')
-    messages.success(request, "You have successfully logged in!")
     return render(request, 'login_success.html')
 
 def logout(request):

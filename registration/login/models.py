@@ -5,7 +5,7 @@ import bcrypt
 class UserManager(models.Manager):
     def register_validator(self, postData):
         errors = {}
-        check_user = User.objects.filter(email = postData['logemail'])
+        check_user = User.objects.filter(email = postData['email'])
 
         if len(postData['first_name']) < 2:
             errors['first_name'] = 'First name should be atleast 2 characters'
