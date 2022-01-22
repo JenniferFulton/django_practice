@@ -37,20 +37,19 @@ def login(request):
                 messages.error(request, value)
             return redirect('/')
 
-    else:
-        request.session['logged_user'] = User.objects.filter(email=request.POST['logemail'])
-        print(request.session['logged_user'])
-        return redirect('/success')
+        else:
+            logged_user = User.objects.get(email=request.POST['logemail'])
+            request.session['user'] = logged_user.id
+            return redirect('/success')
 
 def success(request):
     #'/success' will allow user to be at their homepage once they are logged in
     #Caanot get to route with GET request if they are not logged in
-    if request.method == "GET":
-        if 'user_id' not in request.session:
-            return redirect('/')
-    else:
-        return render(request, 'login_success.html')
+    if 'user' not in request.session:
+        return redirect('/')
+    messages.success(request, "You have successfully logged in!")
+    return render(request, 'login_success.html')
 
 def logout(request):
-    request.session.flush()
+    request.session.clear()
     return redirect('/')
