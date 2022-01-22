@@ -2,7 +2,7 @@ from django.db import models
 import re
 
 class UserManager(models.Manager):
-    def RegistrationManager(self, postData):
+    def register_validator(self, postData):
         errors = {}
         if len(postData['first_name']) < 2:
             errors['first_name'] = 'First name should be atleast 2 characters'
@@ -19,6 +19,8 @@ class UserManager(models.Manager):
 
         if postData['password'] != postData['confirm_pw']:
             errors['confirm_pw'] = 'Passwords do not match'
+        
+        return errors
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)

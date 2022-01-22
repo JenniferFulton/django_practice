@@ -13,13 +13,13 @@
             {% if messages %}
             <ul class='messages'>
                 {% for message in messages %}
-                    <li {% if messages.tags %} class="{{message.tags}}" {% endif %}></li>
+                    <li {% if messages.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
                 {% endfor %}    
             </ul>
             {% endif %}
-            
+
             <h2>Registration</h2>
-            <form action='/registered' method='POST'>
+            <form action='/register' method='POST'>
                 {% csrf_token %}
                 <label for='first_name'>First Name:</label>
                 <input type='text' id='first_name' name='first_name'>
