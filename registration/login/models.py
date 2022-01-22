@@ -21,6 +21,21 @@ class UserManager(models.Manager):
             errors['confirm_pw'] = 'Passwords do not match'
         
         return errors
+    
+    def login_validator(self, postData):
+        errors = {}
+        check_user = User.objects.filter(email = postData['logemail'])
+
+        EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+        if not EMAIL_REGEX.match(postData['logemail']):
+            errors['email'] = 'Please provide valid email address'
+        
+        if len(check_user) == 0:
+            errors['no_user'] = 'User does not exist, please register first'
+    
+
+
+        return errors
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)

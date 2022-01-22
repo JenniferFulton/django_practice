@@ -31,6 +31,16 @@ def login(request):
     #if no errors return redirect('/success')
     #if errors return redirect('/')
 
+    if request.method == "POST":
+        errors = User.objects.login_validator(request.POST)
+        if len(errors) > 0:
+            for key,value in errors.items():
+                messages.error(request, value)
+            return redirect('/')
+
+    else:
+        request.session['logged_user'] = User.objects.filter(email=request.POST['logemail'])
+
 def success(request):
     #'/success' will allow user to be at their homepage once they are logged in
     return render(request, 'login_success.html')
