@@ -36,8 +36,6 @@ class UserManager(models.Manager):
 
         elif not bcrypt.checkpw(postData['logpassword'].encode(), check_user[0].password.encode()):
             errors['invalid_pw'] = 'Password does not match username'
-    
-
 
         return errors
 

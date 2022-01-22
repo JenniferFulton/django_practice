@@ -30,7 +30,6 @@ def login(request):
     #'/login' will verify email and password to allow user to login
     #if no errors return redirect('/success')
     #if errors return redirect('/')
-
     if request.method == "POST":
         errors = User.objects.login_validator(request.POST)
         if len(errors) > 0:
@@ -45,7 +44,12 @@ def login(request):
 
 def success(request):
     #'/success' will allow user to be at their homepage once they are logged in
-    return render(request, 'login_success.html')
+    #Caanot get to route with GET request if they are not logged in
+    if request.method == "GET":
+        if 'user_id' not in request.session:
+            return redirect('/')
+    else:
+        return render(request, 'login_success.html')
 
 def logout(request):
     request.session.flush()
