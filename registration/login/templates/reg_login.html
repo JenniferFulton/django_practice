@@ -9,6 +9,15 @@
 <body>
     <div id=wrapper>
         <div class='register'>
+
+            {% if messages %}
+            <ul class='messages'>
+                {% for message in messages %}
+                    <li {% if messages.tags %} class="{{message.tags}}" {% endif %}></li>
+                {% endfor %}    
+            </ul>
+            {% endif %}
+            
             <h2>Registration</h2>
             <form action='/registered' method='POST'>
                 {% csrf_token %}
