@@ -1,6 +1,7 @@
 from django.db import models
 import re
 import bcrypt
+import datetime
 
 class UserManager(models.Manager):
     def register_validator(self, postData):
@@ -19,6 +20,10 @@ class UserManager(models.Manager):
         
         if len(check_user) != 0:
             errors['duplicate_email'] = 'Email already registered, please use a different email to resister'
+        
+        # today = datetime.date.today()
+        # if postData['birthday'] > today:
+        #     errors = "Are you a time traveler? Birthday cannot be in the future"
 
         if len(postData['password']) < 8:
             errors['password'] = 'Password must be atleast 8 characters'
@@ -48,5 +53,6 @@ class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
+    birthday = models.DateField(null=True)
     password = models.CharField(max_length=50)
     objects = UserManager()
