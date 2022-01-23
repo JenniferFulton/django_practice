@@ -6,3 +6,6 @@ def index(request):
 
 def test(request):
     return HttpResponse("testing a different route")
+
+
+    #THIS IS FILE UNDER DJANGO PRACTICE WHICH IS A PUBLIC REPOSITORY. RESTARTED IN PRIVATE REPOSITORY
