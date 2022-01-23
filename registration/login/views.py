@@ -14,6 +14,7 @@ def register(request):
         if len(errors) > 0:
             for key, value in errors.items():
                 messages.error(request, value)
+            return redirect('/')
         
         else:
             hashed_pw = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
@@ -23,8 +24,10 @@ def register(request):
                 email = request.POST['email'],
                 password = hashed_pw,
             )
-            messages.success(request, "Registration successful, proceeed to login!")
-        return redirect('/')
+            new_user = User.objects.last()
+            request.session['user'] = new_user.id
+            return redirect('/success')
+        
 
 def login(request):
     #'/login' will verify email and password to allow user to login
@@ -47,7 +50,12 @@ def success(request):
     #Cannot get to route with GET request if they are not logged in
     if 'user' not in request.session:
         return redirect('/')
-    return render(request, 'login_success.html')
+    
+    active_user = User.objects.get(id = request.session['user'])
+    context = {
+        'user' : active_user
+    }
+    return render(request, 'login_success.html', context)
 
 def logout(request):
     request.session.clear()

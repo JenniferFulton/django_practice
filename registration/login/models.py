@@ -21,7 +21,7 @@ class UserManager(models.Manager):
             errors['duplicate_email'] = 'Email already registered, please use a different email to resister'
 
         if len(postData['password']) < 8:
-            errors['password'] = 'Passoword must be atleast 8 characters'
+            errors['password'] = 'Password must be atleast 8 characters'
 
         if postData['password'] != postData['confirm_pw']:
             errors['confirm_pw'] = 'Passwords do not match'
