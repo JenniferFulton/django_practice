@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from login.models import *
+from .models import *
 
 def home_page(request):
     #Checks if user is logged in
