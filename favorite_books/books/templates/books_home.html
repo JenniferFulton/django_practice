@@ -2,3 +2,16 @@
 
 <!-- session will be cleared for that user and redirected to login page -->
 <a href='/logout'>Logout</a>
+
+<!-- form for user to add a favorite book -->
+<form action='books/create' method="POST">
+    {% csrf_token %}
+
+    <label for='title'>Title</label>
+    <input type='text' id='title' name='title'>
+
+    <label for='description'>Description</label>
+    <input type='text' id='description' name='description'>
+
+    <input type='button' value='Add'>
+</form>
