@@ -1,10 +1,12 @@
-<h2>Welcome, {{user.first_name}}</h2>
+<!-- Title functioning with user's name -->
+<h2>Welcome, {{user.first_name}}!</h2>
 
-<!-- session will be cleared for that user and redirected to login page -->
+<!-- session will be cleared for that user and redirected to login page (functioning) -->
 <a href='/logout'>Logout</a>
 
 <!-- form for user to add a favorite book -->
-<form action='books/create' method="POST">
+<h3>Add a Favorite Book</h3>
+<form action='/books/create' method="POST">
     {% csrf_token %}
 
     <label for='title'>Title</label>
@@ -13,5 +15,5 @@
     <label for='description'>Description</label>
     <input type='text' id='description' name='description'>
 
-    <input type='button' value='Add'>
+    <input type='submit' value='Add'>
 </form>

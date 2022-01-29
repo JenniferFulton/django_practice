@@ -14,7 +14,7 @@ class BookManager(models.Manager):
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = BookManager()
