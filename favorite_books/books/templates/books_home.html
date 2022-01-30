@@ -17,3 +17,10 @@
 
     <input type='submit' value='Add'>
 </form>
+
+<!-- displays list of all books and the user who added it -->
+<h3>All Books</h3>
+
+{% for book in all_books %}
+    <a href="/books/{{book.id}}">{{book.title}}</a>
+{% endfor %}
