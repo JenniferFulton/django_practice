@@ -38,11 +38,14 @@ def create_book(request):
                 return redirect('/books')
 
 def book_info(request, id):
+    active_user = User.objects.get(id = request.session['user'])
     selected_book = Book.objects.get(id=id)
+
     context = {
-        'book': selected_book
+        'book': selected_book,
+        'user' : active_user,
     }
-    render(request, 'book_info', context)
+    return render(request, 'book_info.html', context)
 
 
 
