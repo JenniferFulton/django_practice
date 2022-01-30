@@ -1,3 +1,5 @@
+from multiprocessing import context
+from select import select
 from django.shortcuts import render, redirect
 from login.models import *
 from .models import *
@@ -34,6 +36,13 @@ def create_book(request):
                     description = request.POST['description'],
                 )
                 return redirect('/books')
+
+def book_info(request, id):
+    selected_book = Book.objects.get(id=id)
+    context = {
+        'book': selected_book
+    }
+    render(request, 'book_info', context)
 
 
 

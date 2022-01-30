@@ -1,4 +1,6 @@
+from operator import imod
 from django.db import models
+from login.models import User
 
 class BookManager(models.Manager):
     def book_validator(self, postData):
@@ -17,4 +19,6 @@ class Book(models.Model):
     description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
+    uploaded_by = models.ForeignKey(User, related_name="books_uploaded", on_delete='', null=True)
+    user_who_like = models.ManyToManyField(User, related_name="liked_books", null=True)
     objects = BookManager()
